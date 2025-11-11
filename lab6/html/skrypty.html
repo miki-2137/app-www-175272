@@ -1,0 +1,55 @@
+    <h2>Zmień kolor tła</h2>
+    <form method="post" name="background">
+        <input type="button" value="żółty" onclick="changeBackground('#FFF000CC')">
+        <input type="button" value="czarny" onclick="changeBackground('#000000CC')">
+        <input type="button" value="biały" onclick="changeBackground('#FFFFFFCC')">
+        <input type="button" value="zielony" onclick="changeBackground('#00FF00CC')">
+        <input type="button" value="niebieski" onclick="changeBackground('#0000FFCC')">
+        <input type="button" value="pomarańczowy" onclick="changeBackground('#FF8000CC')">
+        <input type="button" value="szary" onclick="changeBackground('#c0c0c0CC')">
+        <input type="button" value="czerwony" onclick="changeBackground('#FF0000CC')">
+    </form><br>
+    <h2>Aktualna data i godzina</h2>
+    <p id="data"></p>
+    <p id="zegarek"></p>
+    <div id="animacjaTestowa1" class="test-block">Kliknij, a się powiększę</div>
+    <script>
+        $("#animacjaTestowa1").on("click", function(){
+            $(this).animate({
+                width: "500px",
+                opacity: 0.4,
+                fontsize: "3em",
+                borderWidth: "10px"
+            }, 1500);
+        });
+    </script>
+
+    <div id="animacjaTestowa2" class="test-block">Najedź kursorem, a się powiększę</div>
+    <script>
+        $("#animacjaTestowa2").on({
+            "mouseover" : function(){
+                $(this).animate({
+                    width: 300
+                }, 800);
+            },
+            "mouseout" : function(){
+                $(this).animate({
+                    width: 200
+                }, 800);
+            }
+        });
+    </script>
+
+    <div id="animacjaTestowa3" class="test-block">Klikaj, a będę rósł</div>
+    <script>
+        $("#animacjaTestowa3").on("click", function(){
+            if (!$(this).is(":animated")){
+                $(this).animate({
+                    width: "+=" + 50,
+                    height: "+=" + 10,
+                    opacity: "-=" + 0.1,
+                    duration : 3000
+                });
+            }
+        });
+    </script>
